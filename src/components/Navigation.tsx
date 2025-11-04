@@ -70,7 +70,7 @@ const Navigation = () => {
           to="/"
           className="font-bold text-xl text-white hover:text-purple-400 transition-colors flex-shrink-0"
         >
-          <img src="/assets/logo-horizontal.png" alt="AprendePlay" className="h-7 w-auto" />
+          <img src="/logo-horizontal.png" alt="AprendePlay" className="h-7 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -79,11 +79,10 @@ const Navigation = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`font-semibold transition-all relative ${
-                isActive(link.path)
+              className={`font-semibold transition-all relative ${isActive(link.path)
                   ? 'text-white'
                   : 'text-gray-300 hover:text-white'
-              }`}
+                }`}
             >
               {link.label}
               {isActive(link.path) && (
@@ -135,11 +134,10 @@ const Navigation = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className={`w-full px-4 py-2.5 flex items-center gap-2 text-left text-sm font-semibold transition-all ${
-                        currentLanguage.code === language.code
+                      className={`w-full px-4 py-2.5 flex items-center gap-2 text-left text-sm font-semibold transition-all ${currentLanguage.code === language.code
                           ? 'bg-slate-700 text-white'
                           : 'text-gray-300 hover:bg-slate-700 hover:text-white'
-                      }`}
+                        }`}
                       whileHover={{ paddingLeft: '1.25rem' }}
                     >
                       <span className="text-lg">{language.flag}</span>
@@ -206,11 +204,10 @@ const Navigation = () => {
                 >
                   <Link
                     to={link.path}
-                    className={`block px-4 py-3 rounded-lg font-semibold transition-all ${
-                      isActive(link.path)
+                    className={`block px-4 py-3 rounded-lg font-semibold transition-all ${isActive(link.path)
                         ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
                         : 'text-gray-300 hover:bg-slate-700 hover:text-white'
-                    }`}
+                      }`}
                   >
                     {link.label}
                   </Link>

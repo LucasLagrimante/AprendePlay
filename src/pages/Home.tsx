@@ -123,7 +123,7 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         className="mb-8"
       >
-        <img src="/assets/logo.png" alt="AprendePlay" className="h-48 md:h-56 w-auto" />
+        <img src="/logo.png" alt="AprendePlay" className="h-48 md:h-56 w-auto" />
       </motion.div>
 
       {/* Título */}

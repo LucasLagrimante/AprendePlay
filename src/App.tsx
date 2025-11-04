@@ -11,7 +11,7 @@ export default function App() {
   return (
     <div className="min-h-screen text-white relative flex flex-col">
       <Navigation />
-      <main className="flex-1">
+      <main className="flex-1 overflow-hidden">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/letters" element={<Letters />} />
