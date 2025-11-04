@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import logo from '../assets/logo.png'
+import SEO from '../components/SEO'
 
 interface MenuButtonProps {
   to: string
@@ -177,8 +178,15 @@ export default function Home() {
   ]
 
   return (
-    <div className="h-screen md:min-h-screen flex flex-col items-center justify-start text-white p-2 sm:p-4 md:p-6 overflow-hidden md:overflow-auto">
-      {/* Logo */}
+    <>
+      <SEO
+        title="AprendePlay - Aprenda Brincando"
+        description="Plataforma educativa interativa para aprender cores, letras e números em 8 idiomas. Perfeito para crianças!"
+        keywords="educação infantil, cores, letras, números, aprender brincando, kids learning, educational games"
+        path="/"
+      />
+      <div className="h-screen md:min-h-screen flex flex-col items-center justify-start text-white p-2 sm:p-4 md:p-6 overflow-hidden md:overflow-auto">
+        {/* Logo */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -205,6 +213,7 @@ export default function Home() {
           <CategorySection key={category.title} category={category} index={index} />
         ))}
       </div>
-    </div>
+      </div>
+    </>
   )
 }

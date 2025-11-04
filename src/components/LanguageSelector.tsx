@@ -12,6 +12,11 @@ const languages: Language[] = [
   { code: 'pt', flag: '🇧🇷', name: 'Português' },
   { code: 'en', flag: '🇺🇸', name: 'English' },
   { code: 'es', flag: '🇪🇸', name: 'Español' },
+  { code: 'fr', flag: '🇫🇷', name: 'Français' },
+  { code: 'de', flag: '🇩🇪', name: 'Deutsch' },
+  { code: 'it', flag: '🇮🇹', name: 'Italiano' },
+  { code: 'ja', flag: '🇯🇵', name: '日本語' },
+  { code: 'zh', flag: '🇨🇳', name: '中文' },
 ]
 
 export default function LanguageSelector() {
@@ -76,12 +81,11 @@ export default function LanguageSelector() {
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.05 }}
-                className={`w-full px-6 py-3 flex items-center gap-3 text-left font-semibold transition-all ${
-                  currentLanguage.code === language.code
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
-                    : 'text-gray-800 hover:bg-gray-100'
-                }`}
-                whileHover={{ paddingLeft: '1.75rem' }}
+                className={`w-full px-6 py-3 flex items-center gap-3 text-left font-semibold transition-all ${currentLanguage.code === language.code
+                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
+                  : 'text-gray-800 hover:bg-gray-100'
+                  }`}
+                whileHover={{ x: 8 }}
               >
                 <span className="text-2xl">{language.flag}</span>
                 <span>{language.name}</span>

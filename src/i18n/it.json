@@ -1,0 +1,26 @@
+{
+  "menu": {
+    "home": "Home",
+    "learn": "Impara",
+    "play": "Gioca",
+    "letters": "Lettere",
+    "numbers": "Numeri",
+    "colors": "Colori",
+    "colorsQuiz": "Gioco dei Colori"
+  },
+  "home": {
+    "title": "Impara giocando!",
+    "subtitle": "Scegli cosa vuoi esplorare oggi"
+  },
+  "quiz": {
+    "score": "Punti",
+    "streak": "Sequenza",
+    "selectColor": "Clicca sul colore per ripetere. Scegli il colore corretto:",
+    "correct": "Complimenti!",
+    "incorrect": "Sbagliato!",
+    "tryAgain": "Prova di nuovo!"
+  },
+  "common": {
+    "back": "Indietro"
+  }
+}

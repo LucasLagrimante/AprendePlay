@@ -1,0 +1,26 @@
+{
+  "menu": {
+    "home": "首页",
+    "learn": "学习",
+    "play": "玩游戏",
+    "letters": "字母",
+    "numbers": "数字",
+    "colors": "颜色",
+    "colorsQuiz": "颜色游戏"
+  },
+  "home": {
+    "title": "在玩耍中学习!",
+    "subtitle": "选择你今天想探索的内容"
+  },
+  "quiz": {
+    "score": "分数",
+    "streak": "连续",
+    "selectColor": "点击颜色重复。选择正确的颜色:",
+    "correct": "太棒了!",
+    "incorrect": "错了!",
+    "tryAgain": "再试一次!"
+  },
+  "common": {
+    "back": "返回"
+  }
+}

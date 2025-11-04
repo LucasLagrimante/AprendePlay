@@ -5,8 +5,23 @@ import { motion } from 'framer-motion'
 import colors from '../data/colors.json'
 import { speak } from '../utils/speak'
 import { vibrate } from '../utils/vibrate'
+import SEO from '../components/SEO'
 
 type Color = typeof colors[0]
+
+const getLanguageCode = (lang: string): string => {
+  const langMap: { [key: string]: string } = {
+    pt: 'pt-BR',
+    en: 'en-US',
+    es: 'es-ES',
+    fr: 'fr-FR',
+    de: 'de-DE',
+    it: 'it-IT',
+    ja: 'ja-JP',
+    zh: 'zh-CN',
+  }
+  return langMap[lang] || 'en-US'
+}
 
 /**
  * Página de Quiz de Cores
@@ -24,7 +39,7 @@ export default function ColorsQuiz() {
   const [isAnswering, setIsAnswering] = useState(false)
   const [showParticles, setShowParticles] = useState(false)
 
-  const langCode = i18n.language === 'pt' ? 'pt-BR' : i18n.language === 'es' ? 'es-ES' : 'en-US'
+  const langCode = getLanguageCode(i18n.language)
   const colorName = (color: Color) => (color as any)[i18n.language] ?? color.pt
 
   /**
@@ -114,7 +129,14 @@ export default function ColorsQuiz() {
   }
 
   return (
-    <div className="relative h-screen bg-gradient-to-b from-sky-400 to-indigo-600 flex flex-col items-center justify-start p-3 sm:p-6 text-white overflow-hidden">
+    <>
+      <SEO
+        title={t('menu.colorsQuiz')}
+        description="Quiz Interativo de Cores - Jogo educativo gamificado para crianças aprender cores com pontuação, feedback visual e áudio. Sistema infinito de desafios."
+        keywords="quiz de cores, jogo de cores, educação infantil, aprender cores jogando, interactive game, kids learning"
+        path="/colors-quiz"
+      />
+      <div className="relative h-screen bg-gradient-to-b from-sky-400 to-indigo-600 flex flex-col items-center justify-start p-3 sm:p-6 text-white overflow-hidden">
       {/* Header com Voltar e Placar */}
       <div className="absolute top-0 left-0 right-0 px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between z-10 w-full bg-gradient-to-b from-black/10 to-transparent">
         {/* Voltar ao menu */}
@@ -313,7 +335,8 @@ export default function ColorsQuiz() {
         {/* Partículas de confete (acerto) */}
         {showParticles && feedback === 'correct' && <Confetti />}
       </div>
-    </div>
+      </div>
+    </>
   )
 }
 

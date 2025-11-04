@@ -1,0 +1,26 @@
+{
+  "menu": {
+    "home": "ホーム",
+    "learn": "学ぶ",
+    "play": "遊ぶ",
+    "letters": "文字",
+    "numbers": "数字",
+    "colors": "色",
+    "colorsQuiz": "色ゲーム"
+  },
+  "home": {
+    "title": "遊びながら学ぼう!",
+    "subtitle": "今日探索したいものを選んでください"
+  },
+  "quiz": {
+    "score": "ポイント",
+    "streak": "連続",
+    "selectColor": "色をクリックして繰り返します。正しい色を選んでください:",
+    "correct": "素晴らしい!",
+    "incorrect": "間違えました!",
+    "tryAgain": "もう一度試してください!"
+  },
+  "common": {
+    "back": "戻る"
+  }
+}

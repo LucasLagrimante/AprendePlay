@@ -25,6 +25,11 @@ const languages: Language[] = [
   { code: 'pt', flag: '🇧🇷', name: 'Português' },
   { code: 'en', flag: '🇺🇸', name: 'English' },
   { code: 'es', flag: '🇪🇸', name: 'Español' },
+  { code: 'fr', flag: '🇫🇷', name: 'Français' },
+  { code: 'de', flag: '🇩🇪', name: 'Deutsch' },
+  { code: 'it', flag: '🇮🇹', name: 'Italiano' },
+  { code: 'ja', flag: '🇯🇵', name: '日本語' },
+  { code: 'zh', flag: '🇨🇳', name: '中文' },
 ]
 
 const Navigation = () => {
@@ -115,8 +120,8 @@ const Navigation = () => {
           <Link
             to="/"
             className={`font-semibold transition-all relative ${isActive('/')
-                ? 'text-white'
-                : 'text-gray-300 hover:text-white'
+              ? 'text-white'
+              : 'text-gray-300 hover:text-white'
               }`}
           >
             {homeLink.label}
@@ -183,7 +188,7 @@ const Navigation = () => {
                             className={`block px-4 py-2.5 text-sm font-semibold transition-all ${isActive(link.path)
                               ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
                               : 'text-gray-300 hover:bg-slate-700 hover:text-white'
-                            }`}
+                              }`}
                           >
                             {link.label}
                           </Link>
@@ -235,10 +240,10 @@ const Navigation = () => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
                       className={`w-full px-4 py-2.5 flex items-center gap-2 text-left text-sm font-semibold transition-all ${currentLanguage.code === language.code
-                          ? 'bg-slate-700 text-white'
-                          : 'text-gray-300 hover:bg-slate-700 hover:text-white'
+                        ? 'bg-slate-700 text-white'
+                        : 'text-gray-300 hover:bg-slate-700 hover:text-white'
                         }`}
-                      whileHover={{ paddingLeft: '1.25rem' }}
+                      whileHover={{ x: 6 }}
                     >
                       <span className="text-lg">{language.flag}</span>
                       <span>{language.name}</span>
@@ -307,7 +312,7 @@ const Navigation = () => {
                   className={`block px-4 py-3 rounded-lg font-semibold transition-all ${isActive('/')
                     ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
                     : 'text-gray-300 hover:bg-slate-700 hover:text-white'
-                  }`}
+                    }`}
                 >
                   {homeLink.label}
                 </Link>
@@ -341,7 +346,7 @@ const Navigation = () => {
                           className={`block px-6 py-3 rounded-lg font-semibold transition-all ${isActive(link.path)
                             ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
                             : 'text-gray-300 hover:bg-slate-700 hover:text-white'
-                          }`}
+                            }`}
                         >
                           {link.label}
                         </Link>

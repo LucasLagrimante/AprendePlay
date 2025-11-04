@@ -6,10 +6,24 @@ import { motion } from 'framer-motion'
 
 type Item = { id: string; pt: string; en: string; es?: string; icon: string; color?: string }
 
+const getLanguageCode = (lang: string): string => {
+  const langMap: { [key: string]: string } = {
+    pt: 'pt-BR',
+    en: 'en-US',
+    es: 'es-ES',
+    fr: 'fr-FR',
+    de: 'de-DE',
+    it: 'it-IT',
+    ja: 'ja-JP',
+    zh: 'zh-CN',
+  }
+  return langMap[lang] || 'en-US'
+}
+
 export default function CardAprendizado({ item }: { item: Item }) {
   const { i18n } = useTranslation()
   const [isPlaying, setIsPlaying] = useState(false)
-  const langCode = i18n.language === 'pt' ? 'pt-BR' : i18n.language === 'es' ? 'es-ES' : 'en-US'
+  const langCode = getLanguageCode(i18n.language)
   const text = (item as any)[i18n.language] ?? item.pt
   const iconUrl = `https://cdn.jsdelivr.net/npm/openmoji@15.0.0/color/svg/${item.icon}.svg`
 
