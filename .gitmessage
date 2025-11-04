@@ -1,0 +1,49 @@
+# ============================================================
+# MODELO PADRÃO DE MENSAGEM DE COMMIT
+# ------------------------------------------------------------
+# Formato obrigatório:
+#   <tipo>(<escopo>): <mensagem curta>
+#
+# Exemplo:
+#   fix(ui, core): corrigir cálculo de alíquota variável
+#
+# ------------------------------------------------------------
+# 🔹 COMPONENTES:
+#
+# <tipo>
+#   Classifica a natureza da alteração:
+#     feat     - nova funcionalidade
+#     fix      - correção de bug
+#     refactor - refatoração (sem mudar comportamento)
+#     docs     - alteração apenas na documentação
+#     style    - formatação, indentação, espaçamento
+#     test     - adição/ajuste de testes
+#     chore    - manutenção ou tarefa auxiliar
+#     perf     - melhoria de desempenho
+#     build    - alterações em build, CI/CD, dependências
+#
+# (<escopo>)
+#   Área ou módulo afetado. Exemplo: api, ui, core.
+#   Use nomes curtos e sem espaços.
+#   Exemplo:
+#     feat(api): nova rotina de importação
+#     fix(ui): corrigir cálculo de juros
+#     refactor(core): otimizar função de validação
+#
+# <mensagem curta>
+#   Descrição objetiva da mudança (modo imperativo, até 72 caracteres).
+#   ✅ “adicionar autenticação JWT”
+#   ❌ “adiciona autenticação JWT”
+#
+# Corpo (opcional)
+#   Explicação detalhada do motivo da mudança, se necessário.
+#
+# Rodapé (opcional)
+#   BREAKING CHANGE: descreva alterações incompatíveis
+# ============================================================
+
+<tipo>(<escopo>): <mensagem curta>
+
+<corpo opcional>
+
+<rodapé opcional>

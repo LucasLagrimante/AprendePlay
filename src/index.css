@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
-html, body { height: 100vh; }
+html, body { min-height: 100vh; }
 #root {
-  height: 100vh;
+  min-height: 100vh;
   @apply bg-gradient-to-b from-sky-400 to-indigo-600;
 }
 body { @apply font-sans; }

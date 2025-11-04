@@ -34,6 +34,7 @@ const Navigation = () => {
   const menuRef = useRef<HTMLDivElement>(null)
   const languageRef = useRef<HTMLDivElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const hamburgerRef = useRef<HTMLButtonElement>(null)
   const { t, i18n } = useTranslation()
   const location = useLocation()
 
@@ -70,6 +71,11 @@ const Navigation = () => {
   // Fechar menu quando clicar fora
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      // Ignorar cliques no botão hambúrguer
+      if (hamburgerRef.current && hamburgerRef.current.contains(event.target as Node)) {
+        return
+      }
+
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setIsOpen(false)
       }
@@ -254,6 +260,7 @@ const Navigation = () => {
 
           {/* Mobile Hamburger Button */}
           <motion.button
+            ref={hamburgerRef}
             className="md:hidden flex flex-col gap-1.5 relative z-50"
             onClick={() => setIsOpen(!isOpen)}
             whileTap={{ scale: 0.95 }}

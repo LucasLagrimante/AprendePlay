@@ -41,7 +41,7 @@ export default function LanguageSelector() {
   }, [isOpen])
 
   return (
-    <div ref={menuRef} className="absolute top-4 right-4 z-50">
+    <div ref={menuRef} className="fixed top-4 right-4 z-[9999]">
       {/* Botão principal */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
@@ -67,7 +67,7 @@ export default function LanguageSelector() {
             animate={{ opacity: 1, y: 8, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full right-0 mt-2 bg-white rounded-2xl shadow-2xl overflow-hidden min-w-max pointer-events-auto z-50"
+            className="absolute top-full right-0 mt-2 bg-white rounded-2xl shadow-2xl overflow-hidden min-w-max pointer-events-auto z-[10000]"
           >
             {languages.map((language, index) => (
               <motion.button

@@ -27,7 +27,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({ to, label, icon, color, gradien
     >
       <Link
         to={to}
-        className={`relative flex items-center justify-center w-full h-40 px-8 rounded-3xl font-bold text-2xl text-white text-center transition-all duration-300 overflow-hidden group`}
+        className={`relative flex items-center justify-center w-full h-24 sm:h-24 md:h-40 px-2 sm:px-4 md:px-8 rounded-2xl sm:rounded-3xl font-bold text-xs sm:text-sm md:text-2xl text-white text-center transition-all duration-300 overflow-hidden group`}
         style={{
           background: gradient,
           boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
@@ -35,7 +35,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({ to, label, icon, color, gradien
       >
         {/* Efeito de brilho sutil (antes do hover) */}
         <motion.div
-          className="absolute inset-0 rounded-3xl opacity-30"
+          className="absolute inset-0 rounded-2xl sm:rounded-3xl opacity-30"
           style={{
             background: `radial-gradient(circle at 30% 30%, ${color}40, transparent 70%)`,
           }}
@@ -51,7 +51,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({ to, label, icon, color, gradien
 
         {/* Efeito de hover com overlay brilhante */}
         <motion.div
-          className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100"
+          className="absolute inset-0 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100"
           style={{
             background: `radial-gradient(circle at 50% 50%, ${color}60, transparent 70%)`,
           }}
@@ -62,13 +62,14 @@ const MenuButton: React.FC<MenuButtonProps> = ({ to, label, icon, color, gradien
 
         {/* Conteúdo */}
         <motion.div
-          className="relative z-10 flex flex-col items-center gap-3"
+          className="relative z-10 flex flex-col items-center gap-0 sm:gap-1 md:gap-3"
           initial={{ y: 0 }}
           whileHover={{ y: -5 }}
           transition={{ duration: 0.3 }}
         >
-          <span className="text-5xl">{icon}</span>
-          <span>{label}</span>
+          <span className="text-3xl sm:text-2xl md:text-5xl">{icon}</span>
+          <span className="hidden sm:block">{label}</span>
+          <span className="block sm:hidden text-[11px]">{label.split(' ')[0]}</span>
         </motion.div>
 
         {/* Sombra de hover */}
@@ -93,22 +94,22 @@ const CategorySection: React.FC<{ category: MenuCategory; index: number }> = ({ 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-      className="w-full"
+      className="w-full flex-shrink-0"
     >
       {/* Category Header */}
-      <div className="mb-6 flex items-center justify-center gap-3">
+      <div className="mb-1 sm:mb-2 md:mb-4 flex items-center justify-center gap-1 sm:gap-2 md:gap-3">
         <motion.div
           className="flex-shrink-0 flex items-center justify-center"
           animate={{ rotate: [0, -5, 5, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <span className="text-4xl">{category.icon}</span>
+          <span className="text-xl sm:text-2xl md:text-4xl">{category.icon}</span>
         </motion.div>
-        <h2 className="text-3xl md:text-4xl font-bold text-white">{category.title}</h2>
+        <h2 className="text-sm sm:text-lg md:text-4xl font-bold text-white">{category.title}</h2>
       </div>
 
       {/* Category Buttons */}
-      <div className="w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="w-full max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 sm:gap-2 md:gap-4">
         {category.buttons.map((button, buttonIndex) => (
           <motion.div
             key={button.to}
@@ -176,15 +177,15 @@ export default function Home() {
   ]
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-full text-white p-6 pb-12 overflow-y-auto">
+    <div className="h-screen md:min-h-screen flex flex-col items-center justify-start text-white p-2 sm:p-4 md:p-6 overflow-hidden md:overflow-auto">
       {/* Logo */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
-        className="mt-8 mb-6"
+        className="mt-2 sm:mt-2 md:mt-4 mb-2 sm:mb-2 md:mb-3 flex-shrink-0"
       >
-        <img src={logo} alt="AprendePlay" className="h-40 md:h-48 w-auto" />
+        <img src={logo} alt="AprendePlay" className="h-28 sm:h-28 md:h-40 w-auto" />
       </motion.div>
 
       {/* Título */}
@@ -192,14 +193,14 @@ export default function Home() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-12"
+        className="text-center mb-2 sm:mb-4 md:mb-6 flex-shrink-0"
       >
-        <h1 className="text-5xl md:text-6xl font-bold mb-3">{t('home.title')}</h1>
-        <p className="text-lg md:text-xl opacity-90">{t('home.subtitle')}</p>
+        <h1 className="text-3xl sm:text-3xl md:text-6xl font-bold mb-1 sm:mb-1 md:mb-2">{t('home.title')}</h1>
+        <p className="text-xs sm:text-base md:text-xl opacity-90">{t('home.subtitle')}</p>
       </motion.div>
 
       {/* Categories */}
-      <div className="w-full flex flex-col gap-16">
+      <div className="w-full flex flex-col gap-3 sm:gap-4 md:gap-8 flex-shrink-0 px-2">
         {categories.map((category, index) => (
           <CategorySection key={category.title} category={category} index={index} />
         ))}

@@ -114,102 +114,107 @@ export default function ColorsQuiz() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-sky-400 to-indigo-600 flex flex-col items-center justify-center p-6 text-white overflow-hidden">
-      {/* Voltar ao menu */}
-      <motion.button
-        onClick={() => navigate('/')}
-        className="absolute top-20 left-6 px-6 py-2 bg-white/20 rounded-full hover:bg-white/30 transition-all text-lg font-bold"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        ← {t('common.back') || 'Voltar'}
-      </motion.button>
+    <div className="relative h-screen bg-gradient-to-b from-sky-400 to-indigo-600 flex flex-col items-center justify-start p-3 sm:p-6 text-white overflow-hidden">
+      {/* Header com Voltar e Placar */}
+      <div className="absolute top-0 left-0 right-0 px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between z-10 w-full bg-gradient-to-b from-black/10 to-transparent">
+        {/* Voltar ao menu */}
+        <motion.button
+          onClick={() => navigate('/')}
+          className="px-3 sm:px-6 py-1 sm:py-2 bg-white/20 rounded-full hover:bg-white/30 transition-all text-xs sm:text-lg font-bold"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          ← {t('common.back') || 'Voltar'}
+        </motion.button>
 
-      {/* Placar */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="absolute top-20 right-6 flex gap-8 text-center"
-      >
+        {/* Placar */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex gap-4 sm:gap-8 text-center"
+        >
         {/* Score */}
         <div>
-          <p className="text-sm opacity-75">{t('quiz.score') || 'Pontos'}</p>
-          <p className="text-4xl font-bold">{score}</p>
+          <p className="text-xs sm:text-sm opacity-75">{t('quiz.score') || 'Pontos'}</p>
+          <p className="text-2xl sm:text-4xl font-bold">{score}</p>
         </div>
 
         {/* Streak */}
         <div>
-          <p className="text-sm opacity-75">{t('quiz.streak') || 'Sequência'}</p>
+          <p className="text-xs sm:text-sm opacity-75">{t('quiz.streak') || 'Sequência'}</p>
           <motion.p
-            className="text-4xl font-bold text-yellow-300"
+            className="text-2xl sm:text-4xl font-bold text-yellow-300"
             animate={streak > 0 ? { scale: [1, 1.1, 1] } : {}}
             transition={{ duration: 0.3 }}
           >
             {streak}
           </motion.p>
         </div>
-      </motion.div>
+        </motion.div>
+      </div>
 
-      {/* Título */}
-      <motion.h1
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="text-5xl md:text-6xl font-bold mb-12 text-center"
-      >
-        {t('menu.colorsQuiz') || 'Jogo de Cores'}
-      </motion.h1>
+      {/* Conteúdo principal */}
+      <div className="flex flex-col items-center justify-center flex-1 w-full pt-20 sm:pt-24">
+          {/* Título */}
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="text-2xl sm:text-4xl md:text-6xl font-bold mb-2 sm:mb-4 text-center"
+        >
+          {t('menu.colorsQuiz') || 'Jogo de Cores'}
+        </motion.h1>
 
-      {/* Pergunta */}
-      <motion.div
-        key={targetColor?.id}
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ type: 'spring', stiffness: 200 }}
-        className="mb-12 text-center"
-      >
-        <p className="text-2xl mb-4 opacity-90">{t('quiz.selectColor') || 'Clique na cor:'}</p>
+        {/* Pergunta */}
+        <motion.div
+          key={targetColor?.id}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ type: 'spring', stiffness: 200 }}
+          className="mb-3 sm:mb-6 text-center"
+        >
+          <p className="text-sm sm:text-2xl mb-2 sm:mb-4 opacity-90">{t('quiz.selectColor') || 'Clique na cor:'}</p>
 
-        {targetColor && (
-          <motion.button
-            onClick={() => speak(colorName(targetColor), langCode)}
-            className="mx-auto w-32 h-32 rounded-full border-4 border-white shadow-2xl cursor-pointer hover:brightness-110 transition-all"
-            style={{ backgroundColor: targetColor.color }}
-            animate={{
-              scale: [1, 1.05, 1],
-              boxShadow: [
-                '0 0 0 0 rgba(255,255,255,0.7)',
-                '0 0 0 20px rgba(255,255,255,0)',
-              ],
-            }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeOut',
-            }}
-          />
-        )}
+          {targetColor && (
+            <motion.button
+              onClick={() => speak(colorName(targetColor), langCode)}
+              className="mx-auto w-20 h-20 sm:w-32 sm:h-32 rounded-full border-4 border-white shadow-2xl cursor-pointer hover:brightness-110 transition-all"
+              style={{ backgroundColor: targetColor.color }}
+              animate={{
+                scale: [1, 1.05, 1],
+                boxShadow: [
+                  '0 0 0 0 rgba(255,255,255,0.7)',
+                  '0 0 0 20px rgba(255,255,255,0)',
+                ],
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: 'easeOut',
+              }}
+            />
+          )}
 
-        {/* Texto da cor */}
-        {targetColor && (
-          <motion.p
-            className="text-3xl font-bold mt-6"
-            animate={{ opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            {colorName(targetColor).toUpperCase()}
-          </motion.p>
-        )}
-      </motion.div>
+          {/* Texto da cor */}
+          {targetColor && (
+            <motion.p
+              className="text-lg sm:text-3xl font-bold mt-2 sm:mt-6"
+              animate={{ opacity: [0.7, 1, 0.7] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              {colorName(targetColor).toUpperCase()}
+            </motion.p>
+          )}
+        </motion.div>
 
-      {/* Opções de cores */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="grid grid-cols-2 md:grid-cols-2 gap-6 mb-8"
-      >
+        {/* Opções de cores */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="grid grid-cols-2 gap-3 sm:gap-6 mb-3 sm:mb-8"
+        >
         {options.map((option, index) => {
           const isCorrectAnswer = feedback === 'correct' && option.id === targetColor?.id
           const isWrongAnswer = feedback === 'incorrect' && option.id !== targetColor?.id
@@ -227,7 +232,7 @@ export default function ColorsQuiz() {
                 rotate: isCorrectAnswer ? [0, -5, 5, 0] : 0,
               }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
-              className={`relative w-32 h-32 rounded-2xl border-4 transition-all duration-200 ${
+              className={`relative w-24 h-24 sm:w-40 sm:h-40 rounded-2xl border-4 transition-all duration-200 ${
                 isAnswering ? 'cursor-not-allowed' : 'cursor-pointer hover:scale-105'
               } ${isCorrectAnswer ? 'border-yellow-300 scale-110' : 'border-white/30'}`}
               style={{
@@ -279,34 +284,35 @@ export default function ColorsQuiz() {
             )}
             </motion.button>
             )
-        })}
-      </motion.div>
-
-      {/* Feedback de acerto/erro */}
-      {feedback && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className={`text-center py-4 px-8 rounded-full text-2xl font-bold ${
-            feedback === 'correct'
-              ? 'bg-green-500/80 text-white'
-              : 'bg-red-500/80 text-white'
-          }`}
-        >
-          {feedback === 'correct' ? (
-            <>
-              <span>🎉 {t('quiz.correct') || 'Parabéns!'} +10 pontos</span>
-            </>
-          ) : (
-            <>
-              <span>😅 {t('quiz.incorrect') || 'Errou!'}</span>
-            </>
-          )}
+          })}
         </motion.div>
-      )}
 
-      {/* Partículas de confete (acerto) */}
-      {showParticles && feedback === 'correct' && <Confetti />}
+        {/* Feedback de acerto/erro */}
+        {feedback && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className={`text-center py-2 sm:py-4 px-4 sm:px-8 rounded-full text-sm sm:text-2xl font-bold ${
+              feedback === 'correct'
+                ? 'bg-green-500/80 text-white'
+                : 'bg-red-500/80 text-white'
+            }`}
+          >
+            {feedback === 'correct' ? (
+              <>
+                <span>🎉 {t('quiz.correct') || 'Parabéns!'} +10 pontos</span>
+              </>
+            ) : (
+              <>
+                <span>😅 {t('quiz.incorrect') || 'Errou!'}</span>
+              </>
+            )}
+          </motion.div>
+        )}
+
+        {/* Partículas de confete (acerto) */}
+        {showParticles && feedback === 'correct' && <Confetti />}
+      </div>
     </div>
   )
 }
