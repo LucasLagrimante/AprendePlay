@@ -2,11 +2,23 @@ import { useState, useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import logoHorizontal from '../assets/logo-horizontal.png'
 
 interface Language {
   code: string
   flag: string
   name: string
+}
+
+interface NavLink {
+  path: string
+  label: string
+}
+
+interface MenuCategory {
+  name: string
+  icon: string
+  links: NavLink[]
 }
 
 const languages: Language[] = [
@@ -18,20 +30,35 @@ const languages: Language[] = [
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isLanguageOpen, setIsLanguageOpen] = useState(false)
+  const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
   const languageRef = useRef<HTMLDivElement>(null)
+  const dropdownRef = useRef<HTMLDivElement>(null)
   const { t, i18n } = useTranslation()
   const location = useLocation()
 
   const currentLanguage = languages.find((lang) => lang.code === i18n.language) || languages[0]
 
-  const links = [
-    { path: '/', label: t('menu.home') || 'Início' },
-    { path: '/colors', label: t('menu.colors') || 'Cores' },
-    { path: '/colors-quiz', label: t('menu.colorsQuiz') || 'Jogo de Cores' },
-    { path: '/letters', label: t('menu.letters') || 'Letras' },
-    { path: '/numbers', label: t('menu.numbers') || 'Números' },
+  const menuCategories: MenuCategory[] = [
+    {
+      name: t('menu.learn') || 'Aprenda',
+      icon: '📚',
+      links: [
+        { path: '/colors', label: t('menu.colors') || 'Cores' },
+        { path: '/letters', label: t('menu.letters') || 'Letras' },
+        { path: '/numbers', label: t('menu.numbers') || 'Números' },
+      ]
+    },
+    {
+      name: t('menu.play') || 'Jogue',
+      icon: '🎮',
+      links: [
+        { path: '/colors-quiz', label: t('menu.colorsQuiz') || 'Jogo de Cores' },
+      ]
+    }
   ]
+
+  const homeLink = { path: '/', label: t('menu.home') || 'Início' }
 
   const isActive = (path: string) => location.pathname === path
 
@@ -49,17 +76,21 @@ const Navigation = () => {
       if (languageRef.current && !languageRef.current.contains(event.target as Node)) {
         setIsLanguageOpen(false)
       }
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsMenuDropdownOpen(false)
+      }
     }
 
-    if (isOpen || isLanguageOpen) {
+    if (isOpen || isLanguageOpen || isMenuDropdownOpen) {
       document.addEventListener('mousedown', handleClickOutside)
       return () => document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [isOpen, isLanguageOpen])
+  }, [isOpen, isLanguageOpen, isMenuDropdownOpen])
 
   // Fechar menu ao mudar de página
   useEffect(() => {
     setIsOpen(false)
+    setIsMenuDropdownOpen(false)
   }, [location.pathname])
 
   return (
@@ -70,31 +101,94 @@ const Navigation = () => {
           to="/"
           className="font-bold text-xl text-white hover:text-purple-400 transition-colors flex-shrink-0"
         >
-          <img src="/logo-horizontal.png" alt="AprendePlay" className="h-7 w-auto" />
+          <img src={logoHorizontal} alt="AprendePlay" className="h-7 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex gap-6 items-center flex-1 justify-center">
-          {links.slice(1).map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`font-semibold transition-all relative ${isActive(link.path)
-                  ? 'text-white'
-                  : 'text-gray-300 hover:text-white'
-                }`}
+        <div className="hidden md:flex gap-4 items-center flex-1 justify-center">
+          <Link
+            to="/"
+            className={`font-semibold transition-all relative ${isActive('/')
+                ? 'text-white'
+                : 'text-gray-300 hover:text-white'
+              }`}
+          >
+            {homeLink.label}
+            {isActive('/') && (
+              <motion.div
+                layoutId="underline"
+                className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400"
+                initial={false}
+                transition={{ type: 'spring', stiffness: 380, damping: 40 }}
+              />
+            )}
+          </Link>
+
+          {/* Menu Dropdown */}
+          <div ref={dropdownRef} className="relative">
+            <motion.button
+              onClick={() => setIsMenuDropdownOpen(!isMenuDropdownOpen)}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg font-semibold text-gray-300 hover:text-white hover:bg-slate-700 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {link.label}
-              {isActive(link.path) && (
+              <span>📌 Menu</span>
+              <motion.span
+                animate={{ rotate: isMenuDropdownOpen ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                ▼
+              </motion.span>
+            </motion.button>
+
+            {/* Dropdown Content */}
+            <AnimatePresence>
+              {isMenuDropdownOpen && (
                 <motion.div
-                  layoutId="underline"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400"
-                  initial={false}
-                  transition={{ type: 'spring', stiffness: 380, damping: 40 }}
-                />
+                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 8, scale: 1 }}
+                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-full left-0 mt-2 bg-slate-800 border border-slate-700 rounded-lg shadow-xl overflow-hidden min-w-max pointer-events-auto z-50"
+                >
+                  {menuCategories.map((category, catIndex) => (
+                    <motion.div
+                      key={category.name}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: catIndex * 0.05 }}
+                    >
+                      {/* Category Header */}
+                      <div className="px-4 pt-3 pb-2 flex items-center gap-2 border-b border-slate-700 last:border-b-0">
+                        <span className="text-lg">{category.icon}</span>
+                        <span className="font-bold text-white text-sm">{category.name}</span>
+                      </div>
+
+                      {/* Category Links */}
+                      {category.links.map((link, linkIndex) => (
+                        <motion.div
+                          key={link.path}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: catIndex * 0.05 + linkIndex * 0.03 }}
+                        >
+                          <Link
+                            to={link.path}
+                            className={`block px-4 py-2.5 text-sm font-semibold transition-all ${isActive(link.path)
+                              ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
+                              : 'text-gray-300 hover:bg-slate-700 hover:text-white'
+                            }`}
+                          >
+                            {link.label}
+                          </Link>
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  ))}
+                </motion.div>
               )}
-            </Link>
-          ))}
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Right side controls */}
@@ -125,7 +219,7 @@ const Navigation = () => {
                   animate={{ opacity: 1, y: 8, scale: 1 }}
                   exit={{ opacity: 0, y: -10, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-full right-0 mt-2 bg-slate-800 border border-slate-700 rounded-lg shadow-xl overflow-hidden min-w-max"
+                  className="absolute top-full right-0 mt-2 bg-slate-800 border border-slate-700 rounded-lg shadow-xl overflow-hidden min-w-max pointer-events-auto z-50"
                 >
                   {languages.map((language, index) => (
                     <motion.button
@@ -194,23 +288,59 @@ const Navigation = () => {
             transition={{ duration: 0.3 }}
             className="md:hidden overflow-hidden bg-slate-800 border-t border-slate-700"
           >
-            <div className="px-4 py-2 flex flex-col gap-2">
-              {links.slice(1).map((link, index) => (
+            <div className="px-4 py-3 flex flex-col gap-2">
+              {/* Home Link */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0 }}
+              >
+                <Link
+                  to="/"
+                  className={`block px-4 py-3 rounded-lg font-semibold transition-all ${isActive('/')
+                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
+                    : 'text-gray-300 hover:bg-slate-700 hover:text-white'
+                  }`}
+                >
+                  {homeLink.label}
+                </Link>
+              </motion.div>
+
+              {/* Categories */}
+              {menuCategories.map((category, catIndex) => (
                 <motion.div
-                  key={link.path}
+                  key={category.name}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
+                  transition={{ delay: (catIndex + 1) * 0.05 }}
                 >
-                  <Link
-                    to={link.path}
-                    className={`block px-4 py-3 rounded-lg font-semibold transition-all ${isActive(link.path)
-                        ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
-                        : 'text-gray-300 hover:bg-slate-700 hover:text-white'
-                      }`}
-                  >
-                    {link.label}
-                  </Link>
+                  {/* Category Header */}
+                  <div className="px-4 py-2 flex items-center gap-2">
+                    <span className="text-lg">{category.icon}</span>
+                    <span className="font-bold text-white text-sm">{category.name}</span>
+                  </div>
+
+                  {/* Category Links */}
+                  <div className="flex flex-col gap-1">
+                    {category.links.map((link, linkIndex) => (
+                      <motion.div
+                        key={link.path}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: (catIndex + 1) * 0.05 + linkIndex * 0.03 }}
+                      >
+                        <Link
+                          to={link.path}
+                          className={`block px-6 py-3 rounded-lg font-semibold transition-all ${isActive(link.path)
+                            ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
+                            : 'text-gray-300 hover:bg-slate-700 hover:text-white'
+                          }`}
+                        >
+                          {link.label}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
                 </motion.div>
               ))}
             </div>

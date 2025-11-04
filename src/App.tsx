@@ -9,7 +9,7 @@ import Navigation from './components/Navigation'
 
 export default function App() {
   return (
-    <div className="min-h-screen text-white relative flex flex-col">
+    <div className="h-screen text-white relative flex flex-col">
       <Navigation />
       <main className="flex-1 overflow-hidden">
         <Routes>

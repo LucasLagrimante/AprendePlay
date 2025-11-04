@@ -23,7 +23,12 @@
       "Bash(rm:*)",
       "Bash(npm run build:*)",
       "Bash(git show-ref:*)",
-      "Bash(git log:*)"
+      "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(find:*)",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": []

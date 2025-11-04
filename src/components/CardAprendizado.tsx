@@ -55,9 +55,9 @@ export default function CardAprendizado({ item }: { item: Item }) {
           />
 
           {/* Conteúdo */}
-          <div className="relative z-10 flex flex-col items-center justify-center gap-2 md:gap-4">
+          <div className="relative z-10 flex flex-col items-center justify-center gap-4 md:gap-6">
             <motion.div
-              className="rounded-lg border-2 border-white/30 shadow-lg w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
+              className="rounded-lg border-2 border-white/30 shadow-lg w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36"
               style={{ backgroundColor: (item as any).color }}
               animate={isPlaying ? { rotate: [0, -5, 5, 0], scale: [1, 0.95, 1] } : {}}
               transition={{ duration: 0.3 }}

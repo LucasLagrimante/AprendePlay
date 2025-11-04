@@ -1,6 +1,8 @@
 {
   "menu": {
     "home": "Inicio",
+    "learn": "Aprende",
+    "play": "Juega",
     "letters": "Letras",
     "numbers": "Números",
     "colors": "Colores",
