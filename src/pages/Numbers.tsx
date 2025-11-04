@@ -4,7 +4,7 @@ import numbers from '../data/numbers.json'
 
 export default function Numbers() {
   return (
-    <div className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div className="min-h-full grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 p-3 md:p-6 auto-rows-fr">
       {numbers.map((n: any) => <CardAprendizado key={n.id} item={n} />)}
     </div>
   )

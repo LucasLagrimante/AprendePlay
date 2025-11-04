@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit",
+      "Read",
+      "Write",
+      "Web Fetch",
+      "Bash(dir \"c:\\Users\\lucas\\Projects\\aprendeplay\")",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git pull:*)",
+      "Bash(git checkout:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(nul)",
+      "Bash(dir:*)",
+      "Bash(tree:*)",
+      "Bash(git push:*)",
+      "Bash(npm run deploy:*)",
+      "Bash(timeout 15 bash:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(rm:*)",
+      "Bash(npm run build:*)",
+      "Bash(git show-ref:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

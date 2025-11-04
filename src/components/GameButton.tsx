@@ -111,7 +111,7 @@ export function GameButton({
       whileTap={!disabled && !isLoading ? 'whileTap' : {}}
       transition={{ type: 'spring', stiffness: 300, damping: 25 }}
       onClick={handleClick}
-      className={`relative flex flex-col items-center justify-center p-4 m-2 cursor-pointer rounded-2xl transition-all duration-200 overflow-hidden group ${
+      className={`relative flex flex-col items-center justify-center p-3 md:p-4 cursor-pointer rounded-2xl transition-all duration-200 overflow-hidden group h-full ${
         disabled ? 'opacity-50 cursor-not-allowed' : ''
       } ${className}`}
       style={{
@@ -161,7 +161,7 @@ export function GameButton({
 
       {/* Conteúdo */}
       <motion.div
-        className="relative z-10 flex flex-col items-center justify-center w-full h-full"
+        className="relative z-10 flex flex-col items-center justify-center w-full h-full gap-2 md:gap-3"
         initial={{ scale: 1 }}
         animate={isPlaying ? { scale: [1, 0.95, 1] } : {}}
         transition={{ duration: 0.3 }}
@@ -170,7 +170,7 @@ export function GameButton({
         <motion.img
           src={icon}
           alt={label}
-          className="w-20 h-20 object-contain mb-2 select-none pointer-events-none"
+          className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain select-none pointer-events-none"
           variants={imageVariants}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
           animate={isPlaying ? { rotate: [0, -5, 5, 0] } : {}}
@@ -178,7 +178,7 @@ export function GameButton({
 
         {/* Texto */}
         <motion.p
-          className="text-lg font-bold text-white text-center"
+          className="text-xs sm:text-sm md:text-lg font-bold text-white text-center px-2"
           animate={isPlaying ? { scale: [1, 1.1, 1] } : {}}
           transition={{ duration: 0.3 }}
         >

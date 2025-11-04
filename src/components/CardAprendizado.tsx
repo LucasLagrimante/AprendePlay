@@ -22,14 +22,14 @@ export default function CardAprendizado({ item }: { item: Item }) {
   // Se for cor (não tem ícone SVG), renderizar com quadrado colorido
   if ((item as any).color) {
     return (
-      <div className="relative">
+      <div className="relative h-full">
         <motion.div
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={handleClick}
-          className="flex flex-col items-center p-4 m-2 bg-white/10 rounded-2xl w-36 cursor-pointer transition-all duration-200 overflow-hidden group relative"
+          className="flex flex-col items-center justify-center p-4 bg-white/10 rounded-2xl cursor-pointer transition-all duration-200 overflow-hidden group relative h-full"
           transition={{ type: 'spring', stiffness: 300, damping: 25 }}
         >
           {/* Fundo animado */}
@@ -55,15 +55,15 @@ export default function CardAprendizado({ item }: { item: Item }) {
           />
 
           {/* Conteúdo */}
-          <div className="relative z-10 flex flex-col items-center justify-center">
+          <div className="relative z-10 flex flex-col items-center justify-center gap-2 md:gap-4">
             <motion.div
-              className="w-20 h-20 rounded-lg border-2 border-white/30 shadow-lg"
+              className="rounded-lg border-2 border-white/30 shadow-lg w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
               style={{ backgroundColor: (item as any).color }}
               animate={isPlaying ? { rotate: [0, -5, 5, 0], scale: [1, 0.95, 1] } : {}}
               transition={{ duration: 0.3 }}
             />
             <motion.p
-              className="mt-2 text-lg font-bold text-white text-center"
+              className="text-sm sm:text-base md:text-lg font-bold text-white text-center px-2"
               animate={isPlaying ? { scale: [1, 1.1, 1] } : {}}
               transition={{ duration: 0.3 }}
             >
