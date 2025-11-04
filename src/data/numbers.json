@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "pt": "um",
+    "en": "one",
+    "es": "uno",
+    "icon": "0031-FE0F-20E3"
+  },
+  {
+    "id": "2",
+    "pt": "dois",
+    "en": "two",
+    "es": "dos",
+    "icon": "0032-FE0F-20E3"
+  },
+  {
+    "id": "3",
+    "pt": "três",
+    "en": "three",
+    "es": "tres",
+    "icon": "0033-FE0F-20E3"
+  },
+  {
+    "id": "4",
+    "pt": "quatro",
+    "en": "four",
+    "es": "cuatro",
+    "icon": "0034-FE0F-20E3"
+  },
+  {
+    "id": "5",
+    "pt": "cinco",
+    "en": "five",
+    "es": "cinco",
+    "icon": "0035-FE0F-20E3"
+  },
+  {
+    "id": "6",
+    "pt": "seis",
+    "en": "six",
+    "es": "seis",
+    "icon": "0036-FE0F-20E3"
+  },
+  {
+    "id": "7",
+    "pt": "sete",
+    "en": "seven",
+    "es": "siete",
+    "icon": "0037-FE0F-20E3"
+  },
+  {
+    "id": "8",
+    "pt": "oito",
+    "en": "eight",
+    "es": "ocho",
+    "icon": "0038-FE0F-20E3"
+  },
+  {
+    "id": "9",
+    "pt": "nove",
+    "en": "nine",
+    "es": "nueve",
+    "icon": "0039-FE0F-20E3"
+  },
+  {
+    "id": "10",
+    "pt": "dez",
+    "en": "ten",
+    "es": "diez",
+    "icon": "1F51F"
+  }
+]

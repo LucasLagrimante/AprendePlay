@@ -1,0 +1,12 @@
+{
+  "menu": {
+    "home": "Inicio",
+    "letters": "Letras",
+    "numbers": "Números",
+    "colors": "Colores"
+  },
+  "home": {
+    "title": "¡Aprende jugando!",
+    "subtitle": "Elige lo que quieres explorar hoy"
+  }
+}

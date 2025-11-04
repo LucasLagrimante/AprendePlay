@@ -1,0 +1,66 @@
+[
+  {
+    "id": "red",
+    "pt": "vermelho",
+    "en": "red",
+    "es": "rojo",
+    "icon": "1F534",
+    "color": "#EF4444"
+  },
+  {
+    "id": "blue",
+    "pt": "azul",
+    "en": "blue",
+    "es": "azul",
+    "icon": "1F535",
+    "color": "#3B82F6"
+  },
+  {
+    "id": "yellow",
+    "pt": "amarelo",
+    "en": "yellow",
+    "es": "amarillo",
+    "icon": "1F7E1",
+    "color": "#FBBF24"
+  },
+  {
+    "id": "green",
+    "pt": "verde",
+    "en": "green",
+    "es": "verde",
+    "icon": "1F7E2",
+    "color": "#10B981"
+  },
+  {
+    "id": "purple",
+    "pt": "roxo",
+    "en": "purple",
+    "es": "morado",
+    "icon": "1F7E3",
+    "color": "#A855F7"
+  },
+  {
+    "id": "orange",
+    "pt": "laranja",
+    "en": "orange",
+    "es": "naranja",
+    "icon": "1F7E0",
+    "color": "#F97316"
+  },
+  {
+    "id": "black",
+    "pt": "preto",
+    "en": "black",
+    "es": "negro",
+    "icon": "26AB",
+    "color": "#1F2937"
+  },
+  {
+    "id": "white",
+    "pt": "branco",
+    "en": "white",
+    "es": "blanco",
+    "icon": "26AA",
+    "color": "#F3F4F6"
+  }
+]
