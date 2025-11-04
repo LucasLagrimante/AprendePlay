@@ -69,7 +69,7 @@ const Navigation = () => {
           to="/"
           className="font-bold text-xl text-white hover:text-purple-400 transition-colors flex-shrink-0"
         >
-          AprendePlay
+          <img src="/assets/logo-horizontal.png" alt="AprendePlay" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}

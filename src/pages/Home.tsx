@@ -109,6 +109,16 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-full text-white p-6">
+      {/* Logo */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        className="mb-8"
+      >
+        <img src="/assets/logo.png" alt="AprendePlay" className="h-32 md:h-40 w-auto" />
+      </motion.div>
+
       {/* Título */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
