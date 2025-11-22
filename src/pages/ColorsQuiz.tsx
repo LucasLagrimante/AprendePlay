@@ -257,11 +257,9 @@ export default function ColorsQuiz() {
                 boxShadow:
                   isCorrectAnswer
                     ? '0 0 40px rgba(253, 224, 71, 0.8)'
-                    : feedback === 'incorrect' && option.id === targetColor?.id
-                      ? '0 0 40px rgba(34, 197, 94, 0.6)'
-                      : isWrongAnswer
-                        ? 'none'
-                        : '0 0 20px rgba(255, 255, 255, 0.2)',
+                    : isWrongAnswer
+                      ? 'none'
+                      : '0 0 20px rgba(255, 255, 255, 0.2)',
               }}
               whileHover={!isAnswering ? { scale: 1.08 } : {}}
               whileTap={!isAnswering ? { scale: 0.95 } : {}}
