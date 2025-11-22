@@ -270,16 +270,6 @@ export default function ColorsQuiz() {
               </motion.div>
             )}
 
-            {feedback === 'incorrect' && option.id === targetColor?.id && (
-              <motion.div
-                className="absolute inset-0 rounded-2xl flex items-center justify-center text-5xl"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              >
-                ✓
-              </motion.div>
-            )}
 
             </motion.button>
             )
