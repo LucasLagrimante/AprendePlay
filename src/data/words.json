@@ -91,23 +91,23 @@
   },
   {
     "id": 10,
-    "pt": "banana",
-    "en": "banana",
-    "es": "banana",
-    "syllables_pt": ["BA", "NA", "NA"],
-    "syllables_en": ["BA", "NA", "NA"],
-    "syllables_es": ["BA", "NA", "NA"],
-    "icon": "1F34C"
+    "pt": "maçã",
+    "en": "apple",
+    "es": "manzana",
+    "syllables_pt": ["MA", "ÇÃ"],
+    "syllables_en": ["AP", "PLE"],
+    "syllables_es": ["MAN", "ZA", "NA"],
+    "icon": "1F34E"
   },
   {
     "id": 11,
-    "pt": "estrela",
-    "en": "star",
-    "es": "estrella",
-    "syllables_pt": ["ES", "TRE", "LA"],
-    "syllables_en": ["STAR"],
-    "syllables_es": ["ES", "TRE", "LLA"],
-    "icon": "2B50"
+    "pt": "carro",
+    "en": "car",
+    "es": "carro",
+    "syllables_pt": ["CA", "RRO"],
+    "syllables_en": ["CAR"],
+    "syllables_es": ["CA", "RRO"],
+    "icon": "1F697"
   },
   {
     "id": 12,
@@ -117,20 +117,10 @@
     "syllables_pt": ["CA", "VA", "LO"],
     "syllables_en": ["HORSE"],
     "syllables_es": ["CA", "BA", "LLO"],
-    "icon": "1F40E"
+    "icon": "1F434"
   },
   {
     "id": 13,
-    "pt": "árvore",
-    "en": "tree",
-    "es": "árbol",
-    "syllables_pt": ["ÁR", "VO", "RE"],
-    "syllables_en": ["TREE"],
-    "syllables_es": ["ÁR", "BOL"],
-    "icon": "1F333"
-  },
-  {
-    "id": 14,
     "pt": "coelho",
     "en": "rabbit",
     "es": "conejo",
@@ -140,17 +130,17 @@
     "icon": "1F430"
   },
   {
-    "id": 15,
+    "id": 14,
     "pt": "macaco",
     "en": "monkey",
     "es": "mono",
     "syllables_pt": ["MA", "CA", "CO"],
     "syllables_en": ["MON", "KEY"],
     "syllables_es": ["MO", "NO"],
-    "icon": "1F435"
+    "icon": "1F412"
   },
   {
-    "id": 16,
+    "id": 15,
     "pt": "elefante",
     "en": "elephant",
     "es": "elefante",
@@ -160,27 +150,27 @@
     "icon": "1F418"
   },
   {
+    "id": 16,
+    "pt": "porco",
+    "en": "pig",
+    "es": "cerdo",
+    "syllables_pt": ["POR", "CO"],
+    "syllables_en": ["PIG"],
+    "syllables_es": ["CER", "DO"],
+    "icon": "1F437"
+  },
+  {
     "id": 17,
-    "pt": "girafa",
-    "en": "giraffe",
-    "es": "jirafa",
-    "syllables_pt": ["GI", "RA", "FA"],
-    "syllables_en": ["GI", "RAFFE"],
-    "syllables_es": ["JI", "RA", "FA"],
-    "icon": "1F992"
+    "pt": "galinha",
+    "en": "chicken",
+    "es": "gallina",
+    "syllables_pt": ["GA", "LI", "NHA"],
+    "syllables_en": ["CHICK", "EN"],
+    "syllables_es": ["GA", "LLI", "NA"],
+    "icon": "1F414"
   },
   {
     "id": 18,
-    "pt": "borboleta",
-    "en": "butterfly",
-    "es": "mariposa",
-    "syllables_pt": ["BOR", "BO", "LE", "TA"],
-    "syllables_en": ["BUT", "TER", "FLY"],
-    "syllables_es": ["MA", "RI", "PO", "SA"],
-    "icon": "1F98B"
-  },
-  {
-    "id": 19,
     "pt": "tartaruga",
     "en": "turtle",
     "es": "tortuga",
@@ -190,13 +180,23 @@
     "icon": "1F422"
   },
   {
+    "id": 19,
+    "pt": "passaro",
+    "en": "bird",
+    "es": "pajaro",
+    "syllables_pt": ["PAS", "SA", "RO"],
+    "syllables_en": ["BIRD"],
+    "syllables_es": ["PA", "JA", "RO"],
+    "icon": "1F426"
+  },
+  {
     "id": 20,
-    "pt": "abacaxi",
-    "en": "pineapple",
-    "es": "piña",
-    "syllables_pt": ["A", "BA", "CA", "XI"],
-    "syllables_en": ["PINE", "AP", "PLE"],
-    "syllables_es": ["PI", "ÑA"],
-    "icon": "1F34D"
+    "pt": "laranja",
+    "en": "orange",
+    "es": "naranja",
+    "syllables_pt": ["LA", "RAN", "JA"],
+    "syllables_en": ["OR", "ANGE"],
+    "syllables_es": ["NA", "RAN", "JA"],
+    "icon": "1F34A"
   }
 ]
